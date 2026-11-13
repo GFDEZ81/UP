@@ -15,7 +15,7 @@ Options:
   --tool <name>       Target tool to install agents for (required)
                       Supported: claude-code
   --category <name>   Install only a specific category (repeatable)
-                      Available: engineering, design, data
+                      Available: engineering, design, data, media
                       Default: all categories
   -h, --help          Show this help message
 
