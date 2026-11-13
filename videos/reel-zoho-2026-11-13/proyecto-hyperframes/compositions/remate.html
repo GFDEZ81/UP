@@ -1,0 +1,62 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="remate" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="remate-wrap" class="stage">
+      <div id="remate-bg" class="bg azul"></div>
+      <div id="remate-stage" class="stage">
+        <div class="h" style="position:absolute;left:84px;right:84px;top:520px;font-size:120px">
+          <div id="remate-l1">La mayoría</div>
+          <div id="remate-l2">no lo va a</div>
+          <div id="remate-l3">activar</div>
+          <div id="remate-l4"><span class="it" style="font-size:150px">nunca.</span></div>
+        </div>
+        <svg id="remate-ul" viewBox="0 0 420 40" width="420" height="40" style="position:absolute;left:84px;top:1130px;overflow:visible">
+          <path d="M6 22 C 120 8, 260 6, 414 18" stroke="#00f2fe" stroke-width="9" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1.2" stroke-dashoffset="1.1"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#remate-bg", {clipPath:"inset(100% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 0% 0%)", duration:0.4, ease:"power2.inOut"}, 0);
+    tl.fromTo("#remate-stage", {scale:1.07, opacity:0}, {scale:1.0, opacity:1, duration:0.5, ease:"expo.out"}, 0.18);
+    tl.to("#remate-stage", {scale:1.03, duration:2.6, ease:"none"}, 0.68);
+    tl.fromTo("#remate-stage", {x:0, skewX:0}, {x:18, skewX:-6, duration:0.034, ease:"none", immediateRender:false}, 0.40);
+    tl.to("#remate-stage", {x:-12, skewX:4, duration:0.034, ease:"none"}, 0.434);
+    tl.to("#remate-stage", {x:0, skewX:0, duration:0.034, ease:"none"}, 0.468);
+
+    tl.fromTo("#remate-l1", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.15}, 0.300);
+    tl.fromTo("#remate-l2", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.15}, 0.709);
+    tl.fromTo("#remate-l3", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.15}, 1.268);
+    tl.fromTo("#remate-l4", {opacity:0, scale:1.5, transformOrigin:"left center"}, {opacity:1, scale:1, duration:0.3, ease:"power4.out"}, 1.674);
+    tl.to("#remate-ul path", {strokeDashoffset:0, duration:0.35, ease:"power2.out"}, 1.824);
+    
+    tl.fromTo("#remate-stage", {x:0,y:0}, {x:16,y:-9.6, duration:0.05, ease:"none", immediateRender:false}, 1.674);
+    tl.to("#remate-stage", {x:-11.2,y:6.4, duration:0.05, ease:"none"}, 1.724);
+    tl.to("#remate-stage", {x:5.6,y:-3.2, duration:0.06, ease:"none"}, 1.774);
+    tl.to("#remate-stage", {x:0,y:0, duration:0.12, ease:"power2.out"}, 1.834);
+
+
+    tl.fromTo("#remate-wrap", {clipPath:"inset(0% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 100% 0%)", duration:0.35, ease:"power3.in"}, 2.040);
+
+    window.__timelines["remate"] = tl;
+    })();
+  </script>
+</template>

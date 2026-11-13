@@ -1,0 +1,67 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="cta" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="cta-say" class="h" style="position:absolute;left:84px;top:800px;font-size:64px;text-shadow:0 4px 20px rgba(13,27,42,.6)">Escríbeme</div>
+    <div id="cta-bubble" style="position:absolute;left:84px;top:885px;height:130px;min-width:120px;padding:0 48px;background:#1d4ed8;border-radius:40px 40px 40px 10px;display:flex;align-items:center;box-shadow:0 18px 40px rgba(13,27,42,.4)">
+      <div class="h" style="font-size:84px;letter-spacing:.04em"><span id="cta-c0" style="display:inline-block">Z</span><span id="cta-c1" style="display:inline-block">O</span><span id="cta-c2" style="display:inline-block">H</span><span id="cta-c3" style="display:inline-block">O</span><span id="cta-caret" style="display:inline-block;width:6px;height:70px;background:#f8fafc;margin-left:8px;vertical-align:-6px"></span></div>
+    </div>
+    <div id="cta-card" class="card" style="left:500px;top:1000px;width:496px;height:270px;padding:28px 34px;border-radius:36px">
+      <div class="sup" style="font-size:28px;color:#475569">Te enseño a montar</div>
+          <div style="display:flex;align-items:center;gap:18px;margin-top:14px">
+            <div style="width:52px;height:52px;border-radius:14px;border:3px solid #1d4ed8;display:flex;align-items:center;justify-content:center">
+              <svg id="cta-k0" viewBox="0 0 24 24" width="38" height="38" style="stroke:#1d4ed8;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div style="font-family:Inter;font-weight:600;font-size:34px">Email</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;margin-top:14px">
+            <div style="width:52px;height:52px;border-radius:14px;border:3px solid #1d4ed8;display:flex;align-items:center;justify-content:center">
+              <svg id="cta-k1" viewBox="0 0 24 24" width="38" height="38" style="stroke:#1d4ed8;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div style="font-family:Inter;font-weight:600;font-size:34px">SMS</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;margin-top:14px">
+            <div style="width:52px;height:52px;border-radius:14px;border:3px solid #1d4ed8;display:flex;align-items:center;justify-content:center">
+              <svg id="cta-k2" viewBox="0 0 24 24" width="38" height="38" style="stroke:#1d4ed8;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div style="font-family:Inter;font-weight:600;font-size:34px">WhatsApp</div>
+          </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#cta-say", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.2}, 0.200);
+    tl.fromTo("#cta-bubble", {opacity:0, scale:0.6, transformOrigin:"left bottom"}, {opacity:1, scale:1, duration:0.4, ease:"back.out(1.8)"}, 0.420);
+
+    tl.fromTo("#cta-c0", {opacity:0}, {opacity:1, duration:0.01}, 0.833);
+    tl.fromTo("#cta-c1", {opacity:0}, {opacity:1, duration:0.01}, 0.923);
+    tl.fromTo("#cta-c2", {opacity:0}, {opacity:1, duration:0.01}, 1.013);
+    tl.fromTo("#cta-c3", {opacity:0}, {opacity:1, duration:0.01}, 1.103);
+    tl.fromTo("#cta-caret", {opacity:1}, {opacity:0, duration:0.01}, 1.383);
+    tl.fromTo("#cta-card", {opacity:0, y:80, scale:0.9}, {opacity:1, y:0, scale:1, duration:0.45, ease:"expo.out"}, 1.183);
+
+    tl.fromTo("#cta-k0", {opacity:0, scale:0}, {opacity:1, scale:1, duration:0.35, ease:"back.out(2.2)"}, 1.433);
+    tl.fromTo("#cta-k1", {opacity:0, scale:0}, {opacity:1, scale:1, duration:0.35, ease:"back.out(2.2)"}, 1.673);
+    tl.fromTo("#cta-k2", {opacity:0, scale:0}, {opacity:1, scale:1, duration:0.35, ease:"back.out(2.2)"}, 1.913);
+    tl.to(["#cta-say","#cta-bubble","#cta-card"], {opacity:0, duration:0.2}, 2.630);
+
+    window.__timelines["cta"] = tl;
+    })();
+  </script>
+</template>

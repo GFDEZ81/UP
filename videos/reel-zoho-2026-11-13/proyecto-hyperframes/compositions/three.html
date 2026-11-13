@@ -1,0 +1,69 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="three" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="three-wrap" class="stage">
+      <div id="three-bg" class="bg oscuro"></div>
+      <div id="three-stage" class="stage">
+        <div class="h sup" style="position:absolute;left:84px;right:84px;top:400px;font-family:Inter;font-weight:600;font-size:40px;color:#cbd5e1;text-align:center">Lo que antes eran</div>
+        <div id="three-num" class="h" style="position:absolute;left:0;right:0;top:470px;height:560px;text-align:center;font-size:540px;line-height:560px;color:#00f2fe"><span id="three-n">0</span></div>
+        <div id="three-lab" class="h" style="position:absolute;left:84px;right:84px;top:1060px;text-align:center;font-size:96px">herramientas</div>
+        <div id="three-lab2" class="h" style="position:absolute;left:84px;right:84px;top:1060px;text-align:center;font-size:96px;opacity:0">ahora es <span class="it">una.</span></div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#three-bg", {clipPath:"inset(0% 100% 0% 0%)"}, {clipPath:"inset(0% 0% 0% 0%)", duration:0.4, ease:"power2.inOut"}, 0);
+    tl.fromTo("#three-stage", {scale:1.07, opacity:0}, {scale:1.0, opacity:1, duration:0.5, ease:"expo.out"}, 0.18);
+    tl.to("#three-stage", {scale:1.03, duration:2.6, ease:"none"}, 0.68);
+    tl.fromTo("#three-stage", {x:0, skewX:0}, {x:18, skewX:-6, duration:0.034, ease:"none", immediateRender:false}, 0.40);
+    tl.to("#three-stage", {x:-12, skewX:4, duration:0.034, ease:"none"}, 0.434);
+    tl.to("#three-stage", {x:0, skewX:0, duration:0.034, ease:"none"}, 0.468);
+
+    const n = {v:0};
+    tl.fromTo(n, {v:0}, {v:3, duration:0.519, ease:"power1.in", onUpdate:()=>{document.querySelector("#three-n").textContent = Math.round(n.v);}}, 0.45);
+    tl.fromTo("#three-num", {scale:1.5}, {scale:1, duration:0.3, ease:"power4.out"}, 0.969);
+    tl.set("#three-n", {textContent:"3"}, 0.969);
+    
+    tl.fromTo("#three-stage", {x:0,y:0}, {x:16,y:-9.6, duration:0.05, ease:"none", immediateRender:false}, 0.969);
+    tl.to("#three-stage", {x:-11.2,y:6.4, duration:0.05, ease:"none"}, 1.019);
+    tl.to("#three-stage", {x:5.6,y:-3.2, duration:0.06, ease:"none"}, 1.069);
+    tl.to("#three-stage", {x:0,y:0, duration:0.12, ease:"power2.out"}, 1.129);
+
+    tl.fromTo("#three-num", {x:0, skewX:0}, {x:26, skewX:-10, duration:0.034, immediateRender:false}, 2.414);
+    tl.to("#three-num", {x:-18, skewX:6, duration:0.034}, 2.448);
+    tl.set("#three-n", {textContent:"1"}, 2.481);
+    tl.to("#three-num", {x:0, skewX:0, duration:0.034}, 2.481);
+    tl.fromTo("#three-num", {scale:1.6}, {scale:1, duration:0.3, ease:"power4.out", immediateRender:false}, 2.514);
+    tl.to("#three-lab", {opacity:0, duration:0.15}, 2.180);
+    tl.fromTo("#three-lab2", {opacity:0}, {opacity:1, duration:0.18}, 2.280);
+    
+    tl.fromTo("#three-stage", {x:0,y:0}, {x:18,y:-10.799999999999999, duration:0.05, ease:"none", immediateRender:false}, 2.514);
+    tl.to("#three-stage", {x:-12.6,y:7.2, duration:0.05, ease:"none"}, 2.564);
+    tl.to("#three-stage", {x:6.3,y:-3.6, duration:0.06, ease:"none"}, 2.614);
+    tl.to("#three-stage", {x:0,y:0, duration:0.12, ease:"power2.out"}, 2.674);
+
+
+    tl.fromTo("#three-wrap", {clipPath:"inset(0% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 100% 0%)", duration:0.35, ease:"power3.in"}, 2.790);
+
+    window.__timelines["three"] = tl;
+    })();
+  </script>
+</template>

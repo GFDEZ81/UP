@@ -1,0 +1,68 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="channels" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="channels-wrap" class="stage">
+      <div id="channels-bg" class="bg oscuro"></div>
+      <div id="channels-stage" class="stage">
+        <div id="channels-t0" style="position:absolute;left:84px;top:470px;width:288px;height:300px;border-radius:40px;background:#16283d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px">
+          <div class="ico" style="width:128px;height:128px;"><svg viewBox="0 0 24 24" width="64" height="64"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          <div class="h" style="font-size:48px">Email</div>
+        </div>
+        <div id="channels-t1" style="position:absolute;left:396px;top:470px;width:288px;height:300px;border-radius:40px;background:#16283d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px">
+          <div class="ico" style="width:128px;height:128px;"><svg viewBox="0 0 24 24" width="64" height="64"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="h" style="font-size:48px">SMS</div>
+        </div>
+        <div id="channels-t2" style="position:absolute;left:708px;top:470px;width:288px;height:300px;border-radius:40px;background:#16283d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px">
+          <div class="ico" style="width:128px;height:128px;"><svg viewBox="0 0 24 24" width="64" height="64"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+          <div class="h" style="font-size:48px">WhatsApp</div>
+        </div>
+        <div class="h" style="position:absolute;left:84px;right:84px;top:880px;font-size:112px">
+          <div id="channels-l1">Desde el</div>
+          <div id="channels-l2"><span class="it">mismo sitio.</span></div>
+        </div>
+        <svg id="channels-ul" viewBox="0 0 600 40" width="600" height="40" style="position:absolute;left:84px;top:1112px;overflow:visible">
+          <path d="M6 26 C 150 6, 330 8, 594 20" stroke="#00f2fe" stroke-width="9" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1.2" stroke-dashoffset="1.1"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#channels-bg", {clipPath:"inset(0% 100% 0% 0%)"}, {clipPath:"inset(0% 0% 0% 0%)", duration:0.4, ease:"power2.inOut"}, 0);
+    tl.fromTo("#channels-stage", {scale:1.07, opacity:0}, {scale:1.0, opacity:1, duration:0.5, ease:"expo.out"}, 0.18);
+    tl.to("#channels-stage", {scale:1.03, duration:2.6, ease:"none"}, 0.68);
+    tl.fromTo("#channels-stage", {x:0, skewX:0}, {x:18, skewX:-6, duration:0.034, ease:"none", immediateRender:false}, 0.40);
+    tl.to("#channels-stage", {x:-12, skewX:4, duration:0.034, ease:"none"}, 0.434);
+    tl.to("#channels-stage", {x:0, skewX:0, duration:0.034, ease:"none"}, 0.468);
+
+    tl.fromTo("#channels-t0", {opacity:0, y:90, scale:0.8}, {opacity:1, y:0, scale:1, duration:0.45, ease:"back.out(1.7)"}, 0.200);
+    tl.fromTo("#channels-t1", {opacity:0, y:90, scale:0.8}, {opacity:1, y:0, scale:1, duration:0.45, ease:"back.out(1.7)"}, 0.810);
+    tl.fromTo("#channels-t2", {opacity:0, y:90, scale:0.8}, {opacity:1, y:0, scale:1, duration:0.45, ease:"back.out(1.7)"}, 1.402);
+    tl.fromTo("#channels-l1", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.18}, 2.510);
+    tl.fromTo("#channels-l2", {opacity:0, scale:1.35, transformOrigin:"left center"}, {opacity:1, scale:1, duration:0.3, ease:"power4.out"}, 2.886);
+    tl.to("#channels-ul path", {strokeDashoffset:0, duration:0.4, ease:"power2.out"}, 3.137);
+    tl.to(["#channels-t0","#channels-t2"], {x:(i)=> i===0 ? 40 : -40, duration:0.5, ease:"power2.inOut"}, 2.886);
+
+    tl.fromTo("#channels-wrap", {clipPath:"inset(0% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 100% 0%)", duration:0.35, ease:"power3.in"}, 3.290);
+
+    window.__timelines["channels"] = tl;
+    })();
+  </script>
+</template>

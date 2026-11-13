@@ -1,0 +1,55 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="cierre" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="cierre-wrap" class="stage">
+      <div id="cierre-bg" class="bg azul"></div>
+      <div id="cierre-stage" class="stage">
+        <div id="cierre-card" class="card" style="left:84px;top:360px;width:912px;height:820px;border-radius:60px;padding:64px 60px">
+          <div class="sup" style="color:#475569;font-size:34px">¿Tienes Zoho?</div>
+          <div class="h" style="font-size:96px;margin-top:22px">Email, SMS y WhatsApp en <span class="it" style="color:#1d4ed8">un sitio.</span></div>
+          <div id="cierre-btn" style="margin-top:56px;height:120px;border-radius:999px;background:#1d4ed8;color:#f8fafc;display:flex;align-items:center;justify-content:center" class="h">
+            <span style="font-size:56px">Escríbeme&nbsp;</span><span style="font-size:56px;color:#00f2fe">ZOHO</span>
+          </div>
+          <div style="font-family:Inter;font-weight:500;font-size:32px;color:#475569;margin-top:26px;text-align:center">y te enseño cómo montarlo</div>
+          <div class="h" style="font-size:40px;margin-top:40px;text-align:center;letter-spacing:-0.01em">agfconecta.com</div>
+        </div>
+        <div id="cierre-logo" style="position:absolute;left:290px;top:1215px;width:500px;height:230px;border-radius:28px;background:#0d1b2a;display:flex;align-items:center;justify-content:center">
+          <img src="assets/logo-agf-completo.png" alt="AGF Conecta" style="width:400px;height:auto;display:block"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#cierre-bg", {clipPath:"inset(100% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 0% 0%)", duration:0.4, ease:"power2.inOut"}, 0);
+    tl.fromTo("#cierre-stage", {scale:1.07, opacity:0}, {scale:1.0, opacity:1, duration:0.5, ease:"expo.out"}, 0.18);
+    tl.to("#cierre-stage", {scale:1.03, duration:2.6, ease:"none"}, 0.68);
+    tl.fromTo("#cierre-stage", {x:0, skewX:0}, {x:18, skewX:-6, duration:0.034, ease:"none", immediateRender:false}, 0.40);
+    tl.to("#cierre-stage", {x:-12, skewX:4, duration:0.034, ease:"none"}, 0.434);
+    tl.to("#cierre-stage", {x:0, skewX:0, duration:0.034, ease:"none"}, 0.468);
+
+    tl.fromTo("#cierre-card", {opacity:0, y:140, scale:0.92}, {opacity:1, y:0, scale:1, duration:0.55, ease:"expo.out"}, 0.3);
+    tl.fromTo("#cierre-btn", {scale:1.25}, {scale:1, duration:0.4, ease:"back.out(1.8)"}, 0.75);
+    tl.fromTo("#cierre-logo", {opacity:0, y:60}, {opacity:1, y:0, duration:0.5, ease:"expo.out"}, 0.85);
+
+    window.__timelines["cierre"] = tl;
+    })();
+  </script>
+</template>

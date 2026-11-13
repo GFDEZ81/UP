@@ -1,0 +1,63 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="flow" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="flow-wrap" class="stage">
+      <div id="flow-bg" class="bg claro"></div>
+      <div id="flow-stage" class="stage" style="color:#0d1b2a">
+        <div class="h" style="position:absolute;left:84px;right:84px;top:400px;font-size:112px">
+          <div id="flow-l1">Flujos que mueve</div>
+          <div id="flow-l2" style="color:#1d4ed8">un <span class="it">agente.</span></div>
+        </div>
+        <div id="flow-line" style="position:absolute;left:125px;top:780px;width:6px;height:340px;background:#1d4ed8;border-radius:3px;transform-origin:top center"></div>
+        <div id="flow-n0" style="position:absolute;left:84px;right:84px;top:720px;height:132px;border-radius:36px;background:#ffffff;color:#0d1b2a;display:flex;align-items:center;gap:28px;padding:0 30px;box-shadow:0 14px 40px rgba(13,27,42,.10)">
+          <div class="ico" style="width:84px;height:84px;"><svg viewBox="0 0 24 24" width="46" height="46"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg></div>
+          <div class="h" style="font-size:52px;letter-spacing:-0.02em">Entra un contacto</div>
+        </div>
+        <div id="flow-n1" style="position:absolute;left:84px;right:84px;top:890px;height:132px;border-radius:36px;background:#1d4ed8;color:#f8fafc;display:flex;align-items:center;gap:28px;padding:0 30px;box-shadow:0 14px 40px rgba(13,27,42,.10)">
+          <div class="ico" style="width:84px;height:84px;background:#0d1b2a"><svg viewBox="0 0 24 24" width="46" height="46"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></div>
+          <div class="h" style="font-size:52px;letter-spacing:-0.02em">Un agente de IA decide</div>
+        </div>
+        <div id="flow-n2" style="position:absolute;left:84px;right:84px;top:1060px;height:132px;border-radius:36px;background:#ffffff;color:#0d1b2a;display:flex;align-items:center;gap:28px;padding:0 30px;box-shadow:0 14px 40px rgba(13,27,42,.10)">
+          <div class="ico" style="width:84px;height:84px;"><svg viewBox="0 0 24 24" width="46" height="46"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+          <div class="h" style="font-size:52px;letter-spacing:-0.02em">Le escribe por WhatsApp</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#flow-bg", {clipPath:"inset(100% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 0% 0%)", duration:0.4, ease:"power2.inOut"}, 0);
+    tl.fromTo("#flow-stage", {scale:1.07, opacity:0}, {scale:1.0, opacity:1, duration:0.5, ease:"expo.out"}, 0.18);
+    tl.to("#flow-stage", {scale:1.03, duration:2.6, ease:"none"}, 0.68);
+    tl.fromTo("#flow-stage", {x:0, skewX:0}, {x:18, skewX:-6, duration:0.034, ease:"none", immediateRender:false}, 0.40);
+    tl.to("#flow-stage", {x:-12, skewX:4, duration:0.034, ease:"none"}, 0.434);
+    tl.to("#flow-stage", {x:0, skewX:0, duration:0.034, ease:"none"}, 0.468);
+
+    tl.fromTo("#flow-l1", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.18}, 0.411);
+    tl.fromTo("#flow-l2", {opacity:0, scale:1.35, transformOrigin:"left center"}, {opacity:1, scale:1, duration:0.3, ease:"power4.out"}, 1.481);
+    tl.fromTo("#flow-line", {scaleY:0}, {scaleY:1, duration:1.4, ease:"power2.inOut"}, 0.411);
+
+    tl.fromTo("#flow-n0", {opacity:0, x:-60}, {opacity:1, x:0, duration:0.4, ease:"expo.out"}, 0.147);
+    tl.fromTo("#flow-n1", {opacity:0, x:-60}, {opacity:1, x:0, duration:0.4, ease:"expo.out"}, 0.949);
+    tl.fromTo("#flow-n2", {opacity:0, x:-60}, {opacity:1, x:0, duration:0.4, ease:"expo.out"}, 1.431);
+    window.__timelines["flow"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:#0d1b2a; }
+      #root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:'Outfit',sans-serif; }
+      #ground { position:absolute; inset:0; background:#0d1b2a; }
+      #cam { position:absolute; inset:0; transform-origin:50% 28%; }
+      #avatar { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+      #shade { position:absolute; left:0; right:0; bottom:0; height:960px; background:linear-gradient(to top, rgba(13,27,42,.55) 0%, rgba(13,27,42,0) 100%); z-index:2; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="29.7" data-fps="30" data-width="1080" data-height="1920">
+      <div id="ground"></div>
+      <div id="cam">
+        <video id="avatar" class="clip" src="assets/avatar.mp4" muted playsinline data-start="0" data-duration="26.8" data-track-index="0"></video>
+      </div>
+      <div id="shade"></div>
+      <div id="hook" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0.0" data-duration="4.150" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:10"></div>
+      <div id="campaigns" data-composition-id="campaigns" data-composition-src="compositions/campaigns.html" data-start="4.15" data-duration="2.700" data-track-index="4" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:11"></div>
+      <div id="channels" data-composition-id="channels" data-composition-src="compositions/channels.html" data-start="6.45" data-duration="3.650" data-track-index="5" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:12"></div>
+      <div id="crm" data-composition-id="crm" data-composition-src="compositions/crm.html" data-start="10.1" data-duration="3.650" data-track-index="6" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:13"></div>
+      <div id="flow" data-composition-id="flow" data-composition-src="compositions/flow.html" data-start="13.75" data-duration="3.250" data-track-index="7" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:14"></div>
+      <div id="three" data-composition-id="three" data-composition-src="compositions/three.html" data-start="16.6" data-duration="3.150" data-track-index="8" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:15"></div>
+      <div id="price" data-composition-id="price" data-composition-src="compositions/price.html" data-start="19.75" data-duration="1.700" data-track-index="9" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:16"></div>
+      <div id="remate" data-composition-id="remate" data-composition-src="compositions/remate.html" data-start="21.45" data-duration="2.400" data-track-index="10" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:17"></div>
+      <div id="cta" data-composition-id="cta" data-composition-src="compositions/cta.html" data-start="23.85" data-duration="2.850" data-track-index="11" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:18"></div>
+      <div id="cierre" data-composition-id="cierre" data-composition-src="compositions/cierre.html" data-start="26.7" data-duration="3.000" data-track-index="12" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:19"></div>
+      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="29.7" data-track-index="2" data-track-kind="captions" data-width="1080" data-height="1920" style="z-index:40"></div>
+      <audio id="voice" class="clip" src="assets/voice.wav" data-start="0" data-duration="26.8" data-volume="1" data-track-index="1"></audio>
+      <audio id="music" class="clip" src="assets/music.wav" data-start="0" data-duration="29.7" data-volume="0.15" data-fade-in="0.4" data-fade-out="1.4" data-track-index="19"></audio>
+      <audio id="sfx0" class="clip" src="assets/notif.wav" data-start="0.288" data-duration="0.720" data-volume="0.32" data-track-index="20"></audio>
+      <audio id="sfx1" class="clip" src="assets/whoosh1.wav" data-start="3.853" data-duration="1.580" data-volume="0.28" data-track-index="21"></audio>
+      <audio id="sfx2" class="clip" src="assets/whoosh2.wav" data-start="6.338" data-duration="1.285" data-volume="0.28" data-track-index="22"></audio>
+      <audio id="sfx3" class="clip" src="assets/notif.wav" data-start="6.578" data-duration="0.720" data-volume="0.17" data-track-index="23"></audio>
+      <audio id="sfx4" class="clip" src="assets/notif.wav" data-start="7.298" data-duration="0.720" data-volume="0.17" data-track-index="24"></audio>
+      <audio id="sfx5" class="clip" src="assets/notif.wav" data-start="7.89" data-duration="0.720" data-volume="0.17" data-track-index="25"></audio>
+      <audio id="sfx6" class="clip" src="assets/whoosh1.wav" data-start="9.803" data-duration="1.580" data-volume="0.28" data-track-index="26"></audio>
+      <audio id="sfx7" class="clip" src="assets/notif.wav" data-start="10.388" data-duration="0.720" data-volume="0.32" data-track-index="27"></audio>
+      <audio id="sfx8" class="clip" src="assets/whoosh2.wav" data-start="13.638" data-duration="1.285" data-volume="0.28" data-track-index="28"></audio>
+      <audio id="sfx9" class="clip" src="assets/whoosh1.wav" data-start="16.303" data-duration="1.580" data-volume="0.28" data-track-index="29"></audio>
+      <audio id="sfx10" class="clip" src="assets/impact.wav" data-start="17.252" data-duration="3.454" data-volume="0.5" data-track-index="30"></audio>
+      <audio id="sfx11" class="clip" src="assets/glitch.wav" data-start="18.377" data-duration="1.372" data-volume="0.34" data-track-index="31"></audio>
+      <audio id="sfx12" class="clip" src="assets/whoosh2.wav" data-start="19.638" data-duration="1.285" data-volume="0.28" data-track-index="32"></audio>
+      <audio id="sfx13" class="clip" src="assets/notif.wav" data-start="19.888" data-duration="0.720" data-volume="0.32" data-track-index="33"></audio>
+      <audio id="sfx14" class="clip" src="assets/whoosh1.wav" data-start="21.153" data-duration="1.580" data-volume="0.28" data-track-index="34"></audio>
+      <audio id="sfx15" class="clip" src="assets/impact.wav" data-start="22.807" data-duration="3.454" data-volume="0.5" data-track-index="35"></audio>
+      <audio id="sfx16" class="clip" src="assets/whoosh2.wav" data-start="23.738" data-duration="1.285" data-volume="0.28" data-track-index="36"></audio>
+      <audio id="sfx17" class="clip" src="assets/notif.wav" data-start="24.308" data-duration="0.720" data-volume="0.32" data-track-index="37"></audio>
+      <audio id="sfx18" class="clip" src="assets/notif.wav" data-start="25.271" data-duration="0.720" data-volume="0.17" data-track-index="38"></audio>
+      <audio id="sfx19" class="clip" src="assets/notif.wav" data-start="25.511" data-duration="0.720" data-volume="0.17" data-track-index="39"></audio>
+      <audio id="sfx20" class="clip" src="assets/notif.wav" data-start="25.751" data-duration="0.720" data-volume="0.17" data-track-index="40"></audio>
+      <audio id="sfx21" class="clip" src="assets/whoosh1.wav" data-start="26.403" data-duration="1.580" data-volume="0.28" data-track-index="41"></audio>
+      <audio id="sfx22" class="clip" src="assets/notif.wav" data-start="27.038" data-duration="0.720" data-volume="0.32" data-track-index="42"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // cortes de cámara simulados en cada vuelta a Germán
+      tl.set("#cam", {scale:1.0}, 0);
+      tl.set("#cam", {scale:1.14}, 10.10);
+      tl.set("#cam", {scale:1.0}, 19.75);
+      tl.set("#cam", {scale:1.14}, 23.85);
+      tl.fromTo("#ground", {opacity:1}, {opacity:1, duration:29.689999999999998}, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

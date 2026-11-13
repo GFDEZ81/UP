@@ -1,0 +1,50 @@
+<template>
+  <style>
+#root{position:absolute;inset:0;overflow:hidden;font-family:'Outfit',sans-serif;color:#f8fafc}
+.bg{position:absolute;inset:0}
+.bg.azul{background:#1d4ed8}.bg.oscuro{background:#0d1b2a}.bg.claro{background:#eef2f7}
+.stage{position:absolute;inset:0}
+.h{font-family:'Outfit';font-weight:700;line-height:1.0;letter-spacing:-0.03em}
+.it{font-family:'Playfair Display';font-style:italic;font-weight:500;letter-spacing:-0.01em}
+.sup{font-family:'Inter';font-weight:600;font-size:32px;letter-spacing:0}
+.card{position:absolute;background:#ffffff;color:#0d1b2a;border-radius:44px;box-shadow:0 24px 60px rgba(13,27,42,.35)}
+.ico{display:flex;align-items:center;justify-content:center;background:#1d4ed8;border-radius:24px}
+.ico svg{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pill{position:absolute;border-radius:999px;font-family:'Outfit';font-weight:700;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="campaigns" data-width="1080" data-height="1920" data-layout-allow-overlap>
+
+    <div id="campaigns-wrap" class="stage">
+      <div id="campaigns-bg" class="bg azul"></div>
+      <div id="campaigns-stage" class="stage">
+        <div id="campaigns-pill" class="pill" style="left:84px;top:520px;height:84px;line-height:84px;padding:0 38px;background:#00f2fe;color:#0d1b2a;font-size:44px;transform-origin:left center">NOVEDAD</div>
+        <div class="h" style="position:absolute;left:84px;right:84px;top:660px;font-size:150px">
+          <div id="campaigns-l1">Zoho</div>
+          <div id="campaigns-l2">Campaigns,</div>
+          <div id="campaigns-l3" class="it" style="font-size:150px">renovado.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    (function(){
+    const tl = gsap.timeline({ paused: true });
+    const S = (t) => t; // tiempos locales de la escena
+
+    tl.fromTo("#campaigns-bg", {clipPath:"inset(100% 0% 0% 0%)"}, {clipPath:"inset(0% 0% 0% 0%)", duration:0.4, ease:"power2.inOut"}, 0);
+    tl.fromTo("#campaigns-stage", {scale:1.07, opacity:0}, {scale:1.0, opacity:1, duration:0.5, ease:"expo.out"}, 0.18);
+    tl.to("#campaigns-stage", {scale:1.03, duration:2.6, ease:"none"}, 0.68);
+    tl.fromTo("#campaigns-stage", {x:0, skewX:0}, {x:18, skewX:-6, duration:0.034, ease:"none", immediateRender:false}, 0.40);
+    tl.to("#campaigns-stage", {x:-12, skewX:4, duration:0.034, ease:"none"}, 0.434);
+    tl.to("#campaigns-stage", {x:0, skewX:0, duration:0.034, ease:"none"}, 0.468);
+
+    tl.fromTo("#campaigns-pill", {opacity:0, rotation:-18}, {opacity:1, rotation:-4, duration:0.5, ease:"back.out(2)"}, 0.35);
+    tl.fromTo("#campaigns-l1", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.18}, 0.110);
+    tl.fromTo("#campaigns-l3", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.18}, 0.874);
+    tl.fromTo("#campaigns-l2", {opacity:0, scale:1.4, transformOrigin:"left center"}, {opacity:1, scale:1, duration:0.3, ease:"power4.out"}, 1.336);
+
+    window.__timelines["campaigns"] = tl;
+    })();
+  </script>
+</template>
